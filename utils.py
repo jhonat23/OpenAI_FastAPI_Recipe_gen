@@ -6,10 +6,10 @@ load_dotenv()
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
-def generate_example_recipe():
+def generate_recipe(prompt: str):
     response = openai.Completion.create(
         model='text-davinci-003',
-        prompt='Write a short recipe based on these ingredients and instructions:\n\nFrito Pie\n\nIngredients:\nFritos\nChili\nShredded cheddar cheese\nSweet white or red onions, diced small\nSour cream',
+        prompt=prompt,
         temperature=0.6,
         max_tokens=200
     )
