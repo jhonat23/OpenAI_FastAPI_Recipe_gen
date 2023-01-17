@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Form
-from utils import generate_recipe
+from app.utils import generate_recipe
 
-from models import Recipe
+from app.models import Recipe
 
 app = FastAPI()
 
