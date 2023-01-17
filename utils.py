@@ -11,6 +11,6 @@ def generate_recipe(prompt: str):
         model='text-davinci-003',
         prompt=prompt,
         temperature=0.6,
-        max_tokens=200
+        max_tokens=250
     )
     return response
