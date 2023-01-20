@@ -1,0 +1,5 @@
+runtime: python39
+
+instance_class: F2
+
+entrypoint: python3.9 run.py
