@@ -1,9 +1,18 @@
 from fastapi import FastAPI, Form
-from app.utils import generate_recipe
+from app.utils import generate_recipe, origins
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.models import Recipe
 
 app = FastAPI()
+
+## adding middleware for CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins = origins,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 # Main routes
 
