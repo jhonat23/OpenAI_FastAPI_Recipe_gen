@@ -17,7 +17,7 @@ def generate_recipe(prompt: str):
 
 # allowed origins (CORS)
 origins = [
-    'http://localhost:4200/', ## localhost for development
-    'https://recipegenerator-a700b.firebaseapp.com/',
-    'https://recipegenerator-a700b.web.app/'
+    'http://localhost:4200', ## localhost for development
+    'https://recipegenerator-a700b.firebaseapp.com',
+    'https://recipegenerator-a700b.web.app'
 ]
