@@ -1,4 +1,4 @@
-FROM python:3.10-slim-buster
+FROM python:3.9-slim-buster
 
 WORKDIR /code
 
@@ -10,7 +10,9 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY ./app /code/app
 COPY ./.env /code/.env
-COPY ./run.py /code/run.py
+#COPY ./run.py /code/run.py
 
-#CMD ["uvicorn","app.main:app","--host", "0.0.0.0","--port", "8000"]
-CMD ["python3.10", "run.py"]
+EXPOSE 8000
+
+CMD ["uvicorn","app.main:app","--host", "0.0.0.0","--port", "8000"]
+#CMD ["python3.10", "run.py"]
