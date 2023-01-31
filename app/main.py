@@ -37,6 +37,7 @@ def root():
     response_description='This is the example recipe'
 )
 def get_example_recipe():
+
     example_prompt = """Write a short recipe based on following ingredients. These ingredients can be arranged as a long string or a list: 
 
     1. 3 potatoes
@@ -46,7 +47,9 @@ def get_example_recipe():
     5. pepper
     6. spaguetti
     7.  fish"""
+
     result = generate_recipe(example_prompt)
+    
     return result
 
 ## Generate a recipe
@@ -60,10 +63,12 @@ def get_example_recipe():
     response_description='This is the user recipe'
 )
 def get_recipe(ingredients: str=Form(...)):
+
     user_prompt = """Write a short recipe based on following ingredients. These ingredients can be arranged as a long string or a list: """ + ingredients
 
     if len(ingredients) <= 10:
         return Recipe(instructions="Hey! your prompt doesn't have enough data ¯\_(ツ)_/¯")
 
     result = generate_recipe(user_prompt)
+
     return Recipe(instructions=result['choices'][0]['text'])
