@@ -14,6 +14,9 @@ app.add_middleware(
     allow_headers = ["*"]
 )
 
+# Main prompt. You can use or ajust it!
+prompt = 'Write a recipe based on following ingredients. These ingredients can be arranged as a long string or a list: '
+
 # Main routes
 
 ## Root
@@ -38,15 +41,17 @@ def root():
 )
 def get_example_recipe():
 
-    example_prompt = """Write a short recipe based on following ingredients. These ingredients can be arranged as a long string or a list: 
-
+    example_ingredients = """
     1. 3 potatoes
     2. 1 onion
     3. 2 tomatoes
     4. salt
     5. pepper
     6. spaguetti
-    7.  fish"""
+    7.  fish
+    """
+
+    example_prompt = prompt + example_ingredients
 
     result = generate_recipe(example_prompt)
     
@@ -64,7 +69,7 @@ def get_example_recipe():
 )
 def get_recipe(ingredients: str=Form(...)):
 
-    user_prompt = """Write a short recipe based on following ingredients. These ingredients can be arranged as a long string or a list: """ + ingredients
+    user_prompt = prompt + ingredients
 
     if len(ingredients) <= 10:
         return Recipe(instructions="Hey! your prompt doesn't have enough data ¯\_(ツ)_/¯")

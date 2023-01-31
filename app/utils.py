@@ -10,7 +10,7 @@ def generate_recipe(prompt: str):
     response = openai.Completion.create(
         model='text-davinci-003',
         prompt=prompt,
-        temperature=0.6,
+        temperature=0.7,
         max_tokens=1500
     )
     return response
